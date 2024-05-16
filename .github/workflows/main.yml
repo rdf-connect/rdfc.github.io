@@ -6,6 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: npm i markdown-to-html-cli -g
       - run: markdown-to-html --source index.md --output index.html
 
