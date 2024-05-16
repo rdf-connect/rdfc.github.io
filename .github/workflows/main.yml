@@ -6,15 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: wranders/markdown-to-pages-action@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: |-
-          index.md
-    - uses: actions/upload-pages-artifact@v3
-      with:
-        path: dist
+      - run: npm i markdown-to-html-cli -g
+      - run: markdown-to-html --output coverage/index.html
+      - run: markdown-to-html --source index.md --output index.html
 
   deploy:
     runs-on: ubuntu-latest
