@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: npm i markdown-to-html-cli -g
-      - run: markdown-to-html --output coverage/index.html
       - run: markdown-to-html --source index.md --output index.html
 
   deploy:
