@@ -7,8 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: mkdir -p dist
       - run: npm i markdown-to-html-cli -g
-      - run: markdown-to-html --source index.md --output index.html
+      - run: markdown-to-html --source index.md --output dist/index.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   deploy:
     runs-on: ubuntu-latest
